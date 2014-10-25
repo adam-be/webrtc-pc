@@ -1981,15 +1981,23 @@
 
             <dt>attribute EventHandler onaddtrack</dt>
 
-          <dd>This event handler, of event handler event type <code><a href=
-          "#event-addtrack">addtrack</a></code>, MUST be fired
+              <dd>
+                <div class="note">
+                  Should we call the corresponding event "remotetrack", since
+                  we already have an event named "addtrack" in the Media Capture
+                  and Streams spec?
+                </div>
+
+          <p>This event handler, of event handler event type <code><a href=
+          "#event-addtrack">addtrack</a></code>, MUST be supported
           by all objects implementing the <code><a>RTCPeerConnection</a></code>
           interface. It is called any time a <code>MediaStreamTrack</code> is added
           by the remote peer. This will be fired only as a result of
           <code>setRemoteDescription</code>. onaddtrack happens as early as
           possible after the <code>setRemoteDescription</code>. This callback
           does not wait for a given media track to be accepted or rejected via
-          SDP negotiation.</dd>
+          SDP negotiation.</p>
+          </dd>
 
             </dl>
 
