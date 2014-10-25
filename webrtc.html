@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     To publish this document, see instructions in README
-  -->
+-->
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-  <title>WebRTC 1.0: Real-time Communication Between Browsers</title>
+  <title>WebRTC 1.0: Real-time Communication Between Browsers (FRAGMENT)</title>
   <meta content="text/html; charset=us-ascii" http-equiv="Content-Type">
   <script class="remove" src="http://www.w3.org/Tools/respec/respec-w3c-common"
   type="text/javascript">
@@ -19,6 +19,11 @@
 </head>
 
 <body>
+  <div class="note">
+    This is a fragment of the original document. The purpose is to get reviews
+    on the "RTP media API" section.
+  </div>
+
   <section id="abstract">
     <p>This document defines a set of ECMAScript APIs in WebIDL to allow media
     to be sent to and received from another browser or device implementing the
@@ -28,7 +33,7 @@
     devices developed by the Media Capture Task Force.</p>
   </section>
 
-  <section id="sotd">
+  <!--section id="sotd">
     <p>This document is neither complete nor stable, and as such is not yet
     suitable for commercial implementation. However, early experimentation is
     encouraged. The API is based on preliminary work done in the WHATWG. The
@@ -49,7 +54,7 @@
 
       <li>Feedback received from other groups and individuals.</li>
     </ul>
-  </section>
+  </section-->
 
   <section class="informative" id="intro">
     <h2>Introduction</h2>
@@ -78,7 +83,7 @@
     [[RTCWEB-SECURITY]].</p>
   </section>
 
-  <section id="conformance">
+  <!--section id="conformance">
     <p>This specification defines conformance criteria that apply to a single
     product: the <dfn>user agent</dfn> that implements the interfaces that it
     contains.</p>
@@ -92,7 +97,7 @@
     this specification must implement them in a manner consistent with the
     ECMAScript Bindings defined in the Web IDL specification [[!WEBIDL]], as
     this specification uses that specification and terminology.</p>
-  </section>
+  </section-->
 
   <section>
     <h2>Terminology</h2>
@@ -119,7 +124,7 @@
     [[!GETUSERMEDIA]].</p>
   </section>
  
-  <section>
+  <!--section>
     <h2>Peer-to-peer connections</h2>
 
     <section>
@@ -536,8 +541,8 @@
             <p class="note">The creation of new incoming
             <code>MediaStreamTrack</code>s may be triggered either by SDP
             negotiation or by the receipt of media on a given flow. 
-            <!--  [[OPEN ISSUE: How many <code>MediaStream</code>s are created
-                when you receive multiple conflicting pranswers?]] --></p>
+            --COMMENT_START--  [[OPEN ISSUE: How many <code>MediaStream</code>s are created
+                when you receive multiple conflicting pranswers?]] --COMMENT_END--</p>
           </li>
 
           <li>
@@ -608,8 +613,8 @@
                 "#dom-peerconnection-signaling-state"><code>RTCPeerConnection</code>
                 signalingState</a> is <code>closed</code>, abort these
                 steps.</p>
-              </li><!-- close() was probably called just before this
-         task ran -->
+              </li>--COMMENT_START-- close() was probably called just before this
+         task ran --COMMENT_END--
 
               <li>
                 <p>Remove the RTCRtpSender associated with <var>track</var> from 
@@ -660,7 +665,7 @@
           <dd>
             See the <a href="#dom-peerconnection">RTCPeerConnection constructor
             algorithm</a>.
-          </dd><!--
+          </dd>--COMMENT_START--
             <dt>void getCapabilities ( RTCSessionDescriptionCallback
             successCallback )</dt>
 
@@ -680,7 +685,7 @@
 
               <p> TODO - discuss privacy implications. </p>
             </dd>
-           -->
+           --COMMENT_END--
 
           <dt>void createOffer (RTCSessionDescriptionCallback successCallback,
           RTCPeerConnectionErrorCallback failureCallback, optional
@@ -1795,7 +1800,7 @@
         </dl>
       </section>
     </section>
-  </section>
+  </section-->
 
   <section>
       <h2>RTP media API</h2>
@@ -2117,7 +2122,7 @@
 
   </section>
 
-  <section>
+  <!--section>
     <h2>Peer-to-peer Data API</h2>
 
     <p>The Peer-to-peer Data API lets a web application send and receive
@@ -2138,7 +2143,7 @@
           <p>Creates a new <code><a>RTCDataChannel</a></code> object with the
           given label. The <code><a>RTCDataChannelInit</a></code> dictionary
           can be used to configure properties of the underlying channel such as
-          <!--priority and--> data reliability.</p>
+          --COMMENT_START--priority and--COMMENT_END-- data reliability.</p>
 
           <p>When the <dfn id=
           "dom-peerconnection-createdatachannel"><code>createDataChannel()</code></dfn>
@@ -2512,7 +2517,7 @@
           selected by the script. The attribute MUST return the value to which
           it was set when the <code><a>RTCDataChannel</a></code> was
           created.</p>
-        </dd><!--
+        </dd>--COMMENT_START--
           <dt>readonly attribute long priority</dt>
 
     <dd>
@@ -2525,8 +2530,8 @@
       <p>The value might not be the value given in the <code><a>RTCDataChannelInit</a></code>
       dictionary since it may have been clamped to fit in the range of valid values.</p>
     </dd>
--->
-        <!-- AbstractMessenger -->
+--COMMENT_END--
+        --COMMENT_START-- AbstractMessenger --COMMENT_END--
 
         <dt>readonly attribute RTCDataChannelState readyState</dt>
 
@@ -2577,13 +2582,13 @@
         <dd>This event handler, of type <code><a href=
         "#event-datachannel-close">close</a></code>, MUST be supported by all
         objects implementing the <code><a>RTCDataChannel</a></code>
-        interface.</dd><!--
+        interface.</dd>--COMMENT_START--
         <dt>void close([Clamp] optional unsigned short code, optional DOMString reason)</dt>
 
     <dd>
       <p>Add text...</p>
     </dd>
--->
+--COMMENT_END--
 
         <dt>void close()</dt>
 
@@ -2726,10 +2731,10 @@
 
         <dd>
           <p>Overrides the default selection of id for this channel.</p>
-        </dd><!-- <dt>boolean reliable</dt> -->
-        <!--
+        </dd>--COMMENT_START-- <dt>boolean reliable</dt> --COMMENT_END--
+        --COMMENT_START--
         <dt>[Clamp] long priority</dt>
--->
+--COMMENT_END--
       </dl>
 
       <p>The <dfn id="dom-datachannel-send"><code>send()</code></dfn> method is
@@ -3855,8 +3860,8 @@ function logError(error) {
               <p>If the <var>connection</var>'s <a href=
               "#dom-peerconnection-signaling-state"><code>RTCPeerConnection</code>
               signalingState</a> is <code>closed</code>, abort these steps.</p>
-            </li><!-- close() was probably called just before this
-                 task ran -->
+            </li>--COMMENT_START-- close() was probably called just before this
+                 task ran --COMMENT_END--
 
             <li>
               <p><a href="#sec.identity-proxy-assertion-request">Request an
@@ -4305,11 +4310,11 @@ function logError(error) {
 
       <p>Any <code>peerIdentity</code> property MUST be retained on cloned
       copies of <code>MediaStreamTrack</code>s.</p>
-      <!-- Any stream or track that might be derived from an isolated stream,
+      --COMMENT_START-- Any stream or track that might be derived from an isolated stream,
            such as
            through <a href="https://www.w3.org/TR/streamproc/#media-element-extensions">captureStreamUntilEnded
            or captureStream</a>, MUST also retain any isolation protections.
-        -->
+        --COMMENT_END--
 
       <section id="isolated-track">
         <h4>Extended MediaStreamTrack Properties</h4>
@@ -4438,7 +4443,7 @@ function logError(error) {
         suppressed.</p>
       </section>
     </section>
-  </section>
+  </section-->
 
   <section class="informative">
     <h2>Examples and Call Flows</h2>
@@ -4520,8 +4525,9 @@ function logError(error) {
 </pre>
       </div>
     </section>
+  </section>
 
-    <section>
+    <!--section>
       <h3>Advanced Peer-to-peer Example</h3>
 
       <div>
@@ -4629,7 +4635,7 @@ function logError(error) {
 }
 
 </pre>
-      </div><!--div>
+      </div>--COMMENT_START--div>
     <p>This simple example shows how configure two RTCDataChannel objects for different purposes.</p>
 <p><pre  xml:space="preserve"  class='example highlight'>
 // the chat channel is reliable and not as prioritized as game data
@@ -4638,7 +4644,7 @@ var chatChan = peerConn.createDataChannel("chat", { "priority": 1 });
 // the game data channel is prioritized and unreliable low latency channel for high performance
 var gameDataChan = peerConn.createDataChannel("data", { "reliable": false, "priority": 10 });
     </pre></p>
-  </div-->
+  </div--COMMENT_END--
     </section>
 
     <section>
@@ -4654,14 +4660,14 @@ var gameDataChan = peerConn.createDataChannel("data", { "reliable": false, "prio
 
       <p><img alt=
       "A message sequence chart detailing a call flow between two browsers"
-      src="images/ladder-2party-simple.svg" style="width:100%"></p><!--
+      src="images/ladder-2party-simple.svg" style="width:100%"></p>--COMMENT_START--
       <p>The following flow shows a more complete set of the callbacks and
       events that happen.</p>
 
       <p><img alt=
       "A more complete message sequence chart detailing a call flow between two browsers"
       src="images/ladder-2party-full.svg" style="width:100%"></p>
-      -->
+      --COMMENT_END--
     </section>
 
     <section>
@@ -4736,7 +4742,7 @@ sender.ontonechange = function (e) {
 sender.insertDTMF("123");
 
 </pre>
-    </section><!--
+    </section>--COMMENT_START--
     <section>
       <h3>Call Flow Browser to MCU</h3>
 
@@ -4752,10 +4758,10 @@ sender.insertDTMF("123");
       "A message sequence chart detailing a call flow between a browser and a centralized conferencing server"
       src="images/ladder-mcu-simple.svg" style="width:100%"></p>
     </section>
--->
+--COMMENT_END--
   </section>
 
-  <section class="informative">
+  <!--section class="informative">
     <h2>Event summary</h2>
 
     <p>The following events fire on <code><a>RTCDataChannel</a></code>
@@ -4833,7 +4839,7 @@ sender.insertDTMF("123");
           <td><code>Event</code></td>
 
           <td>TODO</td>
-        </tr><!--
+        </tr>--COMMENT_START--
         <tr>
           <td><dfn title="event-MediaStream-error"><code>error</code></dfn></td>
           <td><code>Event</code></td>
@@ -4859,7 +4865,7 @@ sender.insertDTMF("123");
           <td>A <a href="#data-udp-media-stream">data UDP media
           stream</a> message was received.</td>
         </tr>
-        -->
+        --COMMENT_END--
 
         <tr>
           <td><dfn id=
@@ -5020,7 +5026,7 @@ sender.insertDTMF("123");
     <h2>Security Considerations</h2>
 
     <p>TBD</p>
-  </section><!--section>
+  </section>--COMMENT_START--section>
     <h2 id="sec-iana">IANA Registrations</h2>
 
 
@@ -5050,15 +5056,15 @@ sender.insertDTMF("123");
 
       <p>TODO items - need to register with IANA.</p>
     </section>
-  </section-->
+  </section--COMMENT_END--
 
   <section>
     <h2>Change Log</h2>
 
     <p>This section will be removed before publication.</p>
-    <!-- Why do the first two headings automatically convert to <h2>? -->
-    <!-- Because you haven't added a <section> element around them
-         and respec rewrites h? elements based on the section depth -->
+    --COMMENT_START-- Why do the first two headings automatically convert to <h2>? --COMMENT_END--
+    --COMMENT_START-- Because you haven't added a <section> element around them
+         and respec rewrites h? elements based on the section depth --COMMENT_END--
 
     <h3>Changes since June 4, 2014</h3>
 
@@ -5524,7 +5530,7 @@ sender.insertDTMF("123");
       <li>Moved (and extended) the explanation about track references and media
       sources from LocalMediaStream to MediaStreamTrack.</li>
     </ol>
-  </section>
+  </section-->
 
   <section class="appendix">
     <h2>Acknowledgements</h2>

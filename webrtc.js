@@ -1,6 +1,6 @@
 var respecConfig = {
   // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-  specStatus:           "ED",
+  specStatus:           "NOTE",
 
   // the specification's short name, as in http://www.w3.org/TR/short-name/
   shortName:            "webrtc",
