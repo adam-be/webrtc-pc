@@ -4477,18 +4477,17 @@ function start() {
 
     // once remote video track arrives, show it in the remote video element
     pc.onaddtrack = function (evt) {
-        if (evt.track.kind === "video") {
-          remoteView.srcObject = evt.streams[0];
-        }
+        if (evt.track.kind === "video")
+          remoteView.srcObject = evt.getStreams()[0];
     };
 
     // get a local stream, show it in a self-view and add it to be sent
     navigator.mediaDevices.getUserMedia({ "audio": true, "video": true }, function (stream) {
         selfView.srcObject = stream;
         if (stream.getAudioTracks().length > 0)
-            pc.addTrack(stream.getAudioTracks(0), stream);
+            pc.addTrack(stream.getAudioTracks()[0], stream);
         if (stream.getVideoTracks().length > 0)
-            pc.addTrack(stream.getVideoTracks(0), stream);    
+            pc.addTrack(stream.getVideoTracks()[0], stream);
     }, logError);
 }
 
